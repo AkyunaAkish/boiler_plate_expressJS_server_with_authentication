@@ -14,7 +14,7 @@ JSONWebToken
 
 ### Setup Instructions:
 
-##### Must Have:
+#### Must Have:
 
 - Postgres on your local machine (can be installed with brew on mac)
 - Node.JS/NPM (can be installed with brew on mac)
