@@ -9,23 +9,19 @@ exports.signUp = function(body) {
         error: 'The form was not properly completed'
       })
     } else if (body && Object.keys(body).length > 0 && body.constructor === Object) {
-      if (body.username &&
-        typeof body.username === 'string' &&
-        body.email && typeof body.email === 'string' &&
+      if (body.username && typeof body.username === 'string' &&
         body.password && typeof body.password === 'string') {
         var password_hash = bcrypt.hashSync(body.password, 10)
         return knex('users')
           .insert({
-            username: body.username,
-            email: body.email.toLowerCase(),
+            username: body.username.toLowerCase(),
             password: password_hash
           })
           .returning('*')
           .then(function(user) {
             if (user[0]) {
               if (user[0].id && user[0].username &&
-                user[0].email && user[0].password &&
-                user[0].created_at) {
+                user[0].password && user[0].created_at) {
                 try {
                   var token = jwt.sign({
                     id: user[0].id

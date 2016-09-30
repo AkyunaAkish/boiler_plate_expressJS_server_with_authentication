@@ -6,7 +6,7 @@ var bodyParser = require('body-parser')
 var compression = require('compression')
 var cors = require('cors')
 
-var users = require('./api_routes/users')
+var users = require('./api_routes/user_routes')
 
 var app = express()
 

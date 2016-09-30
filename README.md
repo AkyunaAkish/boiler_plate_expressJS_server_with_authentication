@@ -24,10 +24,10 @@ JSONWebToken
 ```
 Fork/Clone
 $ npm install
-$ createdb react_native_with_authentication_and_navigation
+$ createdb your_database_name
 $ touch .env
-$ echo DATABASE_URL=postgres://localhost/react_native_with_authentication_and_navigation >> .env
+$ echo DATABASE_URL=postgres://localhost/your_database_name >> .env
 $ echo SECRET=$(node -e "require('crypto').randomBytes(48, function(ex, buf) { console.log(buf.toString('hex')) });") >> .env
 $ knex migrate:latest
-$ nodemon
+$ nodemon (this server will run on localhost:3000 by default and the default can be changed in the bin/www file)
 ```

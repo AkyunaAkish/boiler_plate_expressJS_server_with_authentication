@@ -6,32 +6,32 @@ var validateUser = require('./api_helpers/users/validate_user').validateUser
 
 router.post('/signin', function(req, res, next) {
   signIn(req.body)
-  .then(function(resolve) {
-    res.status(200).json(resolve)
-  })
-  .catch(function(reject) {
-    res.status(200).json(reject)
-  })
+    .then(function(resolve) {
+      res.status(200).json(resolve)
+    })
+    .catch(function(reject) {
+      res.status(200).json(reject)
+    })
 })
 
 router.post('/signup', function(req, res, next) {
   signUp(req.body)
-  .then(function(resolve) {
-    res.status(200).json(resolve)
-  })
-  .catch(function(reject) {
-    res.status(200).json(reject)
-  })
+    .then(function(resolve) {
+      res.status(200).json(resolve)
+    })
+    .catch(function(reject) {
+      res.status(200).json(reject)
+    })
 })
 
 router.post('/validateuser', function(req, res, next) {
   validateUser(req.body)
-  .then(function(resolve) {
-    res.status(200).json(resolve)
-  })
-  .catch(function(reject) {
-    res.status(200).json(reject)
-  })
+    .then(function(resolve) {
+      res.status(200).json(resolve)
+    })
+    .catch(function(reject) {
+      res.status(200).json(reject)
+    })
 })
 
 module.exports = router

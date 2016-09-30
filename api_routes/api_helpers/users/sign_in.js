@@ -9,10 +9,10 @@ exports.signIn = function(body) {
         error: 'The form was not properly completed'
       })
     } else if (body && Object.keys(body).length > 0 && body.constructor === Object) {
-      if (body.email && typeof body.email === 'string' && body.password && typeof body.password === 'string') {
+      if (body.username && typeof body.username === 'string' && body.password && typeof body.password === 'string') {
         return knex('users')
           .where({
-            email: body.email.toLowerCase()
+            username: body.username.toLowerCase()
           })
           .first()
           .then(function(user) {
@@ -34,17 +34,17 @@ exports.signIn = function(body) {
               })
             } else if (user) {
               reject({
-                error: 'Email or password incorrect'
+                error: 'Username or password incorrect'
               })
             } else {
               reject({
-                error: 'User with that email doesn\'t exist in the database'
+                error: 'User with that username doesn\'t exist in the database'
               })
             }
           })
           .catch(function(err) {
             reject({
-              error: 'User with that email doensn\'t exist in the database: ' + err
+              error: 'User with that username doensn\'t exist in the database: ' + err
             })
           })
       }
